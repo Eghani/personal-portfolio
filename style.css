@@ -82,12 +82,14 @@ nav {
   border: 1px solid #58a6ff;
   padding: 6px 12px;
   border-radius: 6px;
-  transition: background 0.3s, color 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .social-links a:hover {
   background-color: #58a6ff;
   color: #0d1117;
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #58a6ff, 0 0 40px #58a6ff;
 }
 
 /* Section Styling */
@@ -198,12 +200,12 @@ h2 {
   text-decoration: none;
   border-radius: 6px;
   font-weight: 500;
-  transition: background 0.3s, transform 0.2s;
+  transition: transform 0.3s ease;
 }
 
 .contact-btn:hover {
-  background-color: #1f6feb;
-  transform: scale(1.05);
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #58a6ff, 0 0 40px #58a6ff;
 }
 
 
