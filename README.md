@@ -1,23 +1,15 @@
-# 💻 Personal Portfolio - Ehteshamul Ghani
+# Personal Portfolio
+ 
+The site showcases my journey, skills, and projects as a frontend developer.
 
-This is my personal developer portfolio built using **HTML**, **CSS**.
-
-It showcases:
-- A responsive landing page
-- About me section
-- Education timeline
-- Project highlights
-- Contact links
+---
 
 ### 🚀 Live Preview
-*(Coming soon on GoDaddy or GitHub Pages)*
+
+📍 **Visit Now**: [www.ehteshamulghani.xyz](https://www.ehteshamulghani.xyz)
+
+✅ It's live — check it out and let me know what you think!
 
 ---
 
-### 🛠️ Tech Stack
-- HTML5
-- CSS3
-- Google Fonts (Poppins)
-- Hosted on: GoDaddy (planned)
-
----
+Built using only **HTML**, **CSS**, and a lot of hard work ! 
