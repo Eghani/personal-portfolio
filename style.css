@@ -42,11 +42,17 @@ nav {
   text-decoration: none;
   color: #e6edf3;
   font-weight: 500;
-  transition: color 0.3s ease;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  background-color: transparent;
 }
 
 .nav-links a:hover {
-  color: #58a6ff;
+  background-color: #58a6ff;
+  color: #0d1117;
+  box-shadow: 0 0 15px #58a6ff, 0 0 30px #58a6ff;
+  transform: translateY(-4px);
 }
 
 /* Hero Section*/
@@ -57,6 +63,33 @@ nav {
   justify-content: center;
   text-align: center;
   position: relative;
+}
+
+.hero-glow {
+  font-size: 5.5rem;
+  font-weight: 600;
+  color: #58a6ff;
+  text-align: center;
+  opacity: 0;
+  animation: fadeGlow 2.5s ease-in-out forwards;
+}
+
+@keyframes fadeGlow {
+  0% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 0.5;
+    text-shadow: 0 0 6px #58a6ff;
+  }
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 10px #58a6ff,
+      0 0 15px #1f6feb,
+      0 0 20px #1f6feb;
+  }
 }
 
 .hero h1 {
@@ -195,17 +228,21 @@ h2 {
 .contact-btn {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #58a6ff;
-  color: #0d1117;
+  background-color: transparent;
+  color: #e6edf3;
   text-decoration: none;
+  border: 1px solid #58a6ff;
   border-radius: 6px;
   font-weight: 500;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.2);
 }
 
 .contact-btn:hover {
-  transform: translateY(-10px);
+  background-color: #58a6ff;
+  color: #0d1117;
   box-shadow: 0 0 20px #58a6ff, 0 0 40px #58a6ff;
+  transform: translateY(-4px);
 }
 
 
