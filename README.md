@@ -10,7 +10,7 @@ The site showcases my journey, skills, and projects as a frontend developer.
 📍 **Visit Now**: [www.ehteshamulghani.xyz](https://www.ehteshamulghani.xyz)
 [![eghani](/assets/images/preview.png)](https://www.ehteshamulghani.xyz)
 
-<hr>
+---
 <br>
 
 [![](/assets/images/desktop_stats.png)](https://pagespeed.web.dev/analysis/https-www-ehteshamulghani-xyz/ronuh0rp4e?form_factor=desktop)
@@ -58,7 +58,3 @@ personal-portfolio/
 ## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
-
----
-
-Built using only **HTML**, **CSS**, and a lot of hard work !
