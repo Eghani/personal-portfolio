@@ -447,7 +447,11 @@ h2 {
     transform: translateY(-10px);
     box-shadow: 0 0 20px #58a6ff, 0 0 40px #58a6ff;
   }
-
+  .project-links {
+    display: flex;
+    gap: - 0.2rem;
+    margin-top: 1rem;
+  }
   .project-content {
     padding: 1rem;
   }
@@ -474,7 +478,7 @@ h2 {
 @keyframes projectFadeIn {
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1);  
   }
 }
 
