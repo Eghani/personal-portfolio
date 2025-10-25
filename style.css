@@ -1755,20 +1755,18 @@ footer {
   position: relative;
 }
 
-.project-card::after {
-  content: "Click to view details →";
-  position: absolute;
-  bottom: 1rem;
-  right: 1.5rem;
+.project-card-hint {
+  text-align: center;
   color: #58a6ff;
   font-size: 0.85rem;
   font-weight: 600;
+  margin-top: 1rem;
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
-.project-card:hover::after {
+.project-card:hover .project-card-hint {
   opacity: 1;
 }
 
