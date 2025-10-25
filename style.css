@@ -12,6 +12,47 @@ body {
   line-height: 1.6;
 }
 
+/* Scroll Progress Indicator */
+.scroll-progress-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 999;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scroll-progress-wrapper:hover {
+  transform: scale(1.1);
+}
+
+.scroll-progress-ring {
+  transform: rotate(-90deg);
+  filter: drop-shadow(0 0 10px rgba(88, 166, 255, 0.5));
+}
+
+.scroll-progress-ring-circle {
+  stroke-dasharray: 169.65; /* 2 * PI * 27 */
+  stroke-dashoffset: 169.65;
+  transition: stroke-dashoffset 0.1s linear;
+  stroke-linecap: round;
+}
+
+.scroll-progress-percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: 600;
+  color: #58a6ff;
+  pointer-events: none;
+}
+
 /* Navbar */
 nav {
   display: flex;
@@ -211,6 +252,72 @@ nav {
 .hero p {
   font-size: 2.9rem;
   margin-top: 0.5rem;
+}
+
+/* Resume Download Button */
+.resume-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #58a6ff, #7c3aed);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(88, 166, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-download-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.resume-download-btn:hover::before {
+  left: 100%;
+}
+
+.resume-download-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(88, 166, 255, 0.6),
+    0 0 30px rgba(124, 58, 237, 0.4);
+}
+
+.resume-download-btn:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.resume-download-btn i {
+  font-size: 1.3rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .social-links {
@@ -963,29 +1070,229 @@ h2 {
 #contact {
   text-align: center;
   padding: 4rem 2rem;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 #contact h1 {
   font-size: 2.5rem;
   color: #58a6ff;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-align: center;
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  color: #8b949e;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  text-align: left;
+  margin-top: 2rem;
+}
+
+/* Contact Form Styles */
+.contact-form-wrapper {
+  background: linear-gradient(135deg, #161b22, #0d1117);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid #30363d;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: #e6edf3;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-group label i {
+  color: #58a6ff;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background: #0d1117;
+  border: 2px solid #30363d;
+  border-radius: 10px;
+  color: #e6edf3;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #58a6ff;
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #6e7681;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #58a6ff, #7c3aed);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(88, 166, 255, 0.3);
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(88, 166, 255, 0.5);
+}
+
+.submit-btn:active {
+  transform: translateY(-1px);
+}
+
+.submit-btn i {
+  font-size: 1.2rem;
+}
+
+.form-status {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+  display: none;
+}
+
+.form-status.success {
+  display: block;
+  background: rgba(46, 160, 67, 0.1);
+  border: 1px solid #2ea043;
+  color: #3fb950;
+}
+
+.form-status.error {
+  display: block;
+  background: rgba(248, 81, 73, 0.1);
+  border: 1px solid #f85149;
+  color: #ff7b72;
+}
+
+/* Contact Info Cards */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-info-card {
+  background: linear-gradient(135deg, #161b22, #0d1117);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid #30363d;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.contact-info-card:hover {
+  border-color: #58a6ff;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(88, 166, 255, 0.2);
+}
+
+.info-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, #58a6ff20, #7c3aed20);
+  border: 2px solid #58a6ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #58a6ff;
+}
+
+.contact-info-card h3 {
+  color: #e6edf3;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-info-card p {
+  color: #8b949e;
+  margin: 0;
+}
+
+.contact-info-card a {
+  color: #58a6ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info-card a:hover {
+  color: #7c3aed;
+}
+
+.social-connect {
+  background: linear-gradient(135deg, #161b22, #0d1117);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid #30363d;
+  text-align: center;
+}
+
+.social-connect h3 {
+  color: #e6edf3;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
 }
 
 .contact-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.2rem;
-  margin-top: 2.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
-  width: 100%;
 }
 
 .contact-icon {
@@ -1139,6 +1446,332 @@ footer {
   }
 }
 
+/* Project Detail Modal - Unique Slide-Up Design */
+.project-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: none;
+  pointer-events: none;
+}
+
+.project-modal.active {
+  display: block;
+  pointer-events: all;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-modal.active .modal-overlay {
+  opacity: 1;
+}
+
+.modal-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 90vh;
+  background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
+  border-radius: 30px 30px 0 0;
+  padding: 2rem;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 -10px 60px rgba(88, 166, 255, 0.3);
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, #58a6ff, #7c3aed) 1;
+}
+
+.project-modal.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #58a6ff20, #7c3aed20);
+  border: 2px solid #58a6ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #58a6ff;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: linear-gradient(135deg, #58a6ff40, #7c3aed40);
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 20px rgba(88, 166, 255, 0.5);
+}
+
+.modal-header {
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.modal-project-type {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: linear-gradient(135deg, #58a6ff20, #7c3aed20);
+  border: 1px solid #58a6ff;
+  border-radius: 20px;
+  color: #58a6ff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.modal-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #58a6ff 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.modal-body {
+  padding-bottom: 2rem;
+}
+
+.modal-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #c9d1d9;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(88, 166, 255, 0.05);
+  border-left: 4px solid #58a6ff;
+  border-radius: 8px;
+}
+
+.modal-section {
+  margin-bottom: 2rem;
+  animation: slideUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.project-modal.active .modal-section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.project-modal.active .modal-section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.project-modal.active .modal-section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.modal-section h3 {
+  font-size: 1.3rem;
+  color: #e6edf3;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-section h3 i {
+  color: #58a6ff;
+  font-size: 1.2rem;
+}
+
+.modal-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.modal-feature-item {
+  padding: 1rem;
+  background: linear-gradient(135deg, #161b22, #0d1117);
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.modal-feature-item:hover {
+  border-color: #58a6ff;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(88, 166, 255, 0.2);
+}
+
+.modal-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.modal-tech-badge {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #58a6ff15, #7c3aed15);
+  border: 2px solid #58a6ff;
+  border-radius: 25px;
+  color: #58a6ff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.modal-tech-badge:hover {
+  background: linear-gradient(135deg, #58a6ff30, #7c3aed30);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(88, 166, 255, 0.3);
+}
+
+.modal-challenges {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modal-challenge-item {
+  padding: 1.5rem;
+  background: rgba(124, 58, 237, 0.05);
+  border-left: 4px solid #7c3aed;
+  border-radius: 8px;
+}
+
+.modal-challenge-item h4 {
+  color: #7c3aed;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-challenge-item h4::before {
+  content: "⚡";
+  font-size: 1.3rem;
+}
+
+.modal-challenge-item p {
+  color: #8b949e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.modal-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #30363d;
+  flex-wrap: wrap;
+}
+
+.modal-link-btn {
+  flex: 1;
+  min-width: 150px;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #58a6ff, #7c3aed);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(88, 166, 255, 0.3);
+}
+
+.modal-link-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(88, 166, 255, 0.5);
+}
+
+.modal-link-btn.secondary {
+  background: transparent;
+  border: 2px solid #58a6ff;
+  color: #58a6ff;
+}
+
+.modal-link-btn.secondary:hover {
+  background: rgba(88, 166, 255, 0.1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Scrollbar for Modal */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #58a6ff, #7c3aed);
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #7c3aed, #58a6ff);
+}
+
+/* Make project cards clickable */
+.project-card {
+  cursor: pointer;
+  position: relative;
+}
+
+.project-card::after {
+  content: "Click to view details →";
+  position: absolute;
+  bottom: 1rem;
+  right: 1.5rem;
+  color: #58a6ff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-card:hover::after {
+  opacity: 1;
+}
+
 @media (max-width: 900px) {
   .edu-timeline {
     gap: 1.2rem;
@@ -1243,6 +1876,22 @@ footer {
     min-width: 70px;
     min-height: 90px;
   }
+
+  /* Modal Responsive - Tablet */
+  .modal-content {
+    max-height: 92vh;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .modal-features {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card::after {
+    font-size: 0.8rem;
+    bottom: 0.8rem;
+    right: 1rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1291,6 +1940,21 @@ footer {
 
   .stat-number {
     font-size: 2rem;
+  }
+
+  /* Contact Section Mobile - Tablet */
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-form-wrapper {
+    padding: 2rem;
+  }
+
+  .resume-download-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
   }
 
   .edu-timeline {
@@ -1375,6 +2039,31 @@ footer {
 }
 
 @media (max-width: 480px) {
+  /* Scroll Progress Mobile Adjustments */
+  .scroll-progress-wrapper {
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .scroll-progress-ring {
+    width: 50px;
+    height: 50px;
+  }
+
+  .scroll-progress-ring-circle {
+    r: 22;
+    cx: 25;
+    cy: 25;
+    stroke-dasharray: 138.23; /* 2 * PI * 22 */
+    stroke-dashoffset: 138.23;
+  }
+
+  .scroll-progress-percentage {
+    font-size: 10px;
+  }
+
   .logo {
     gap: 0.6rem;
   }
@@ -1428,6 +2117,82 @@ footer {
     width: 90%;
     padding: 10px;
   }
+
+  /* Modal Responsive - Mobile */
+  .modal-content {
+    max-height: 95vh;
+    padding: 1.5rem;
+    border-radius: 25px 25px 0 0;
+  }
+
+  .modal-title {
+    font-size: 2rem;
+  }
+
+  .modal-description {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .modal-section h3 {
+    font-size: 1.15rem;
+  }
+
+  .modal-links {
+    flex-direction: column;
+  }
+
+  .modal-link-btn {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .modal-close {
+    top: 1rem;
+    right: 1rem;
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .project-card::after {
+    display: none;
+  }
+
+  .modal-tech-badge {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .modal-challenge-item {
+    padding: 1rem;
+  }
+
+  /* Contact Form Mobile */
+  .contact-form-wrapper {
+    padding: 1.5rem;
+  }
+
+  .submit-btn {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .resume-download-btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.95rem;
+  }
+
+  .contact-info-card {
+    padding: 1.2rem;
+  }
+
+  .info-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
   /* Hamburger menu styles */
   .menu-btn {
     display: block;

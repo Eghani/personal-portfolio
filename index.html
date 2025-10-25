@@ -32,8 +32,58 @@
   </head>
 
   <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-wrapper">
+      <svg class="scroll-progress-ring" width="60" height="60">
+        <circle
+          class="scroll-progress-ring-circle"
+          stroke="#58a6ff"
+          stroke-width="3"
+          fill="transparent"
+          r="27"
+          cx="30"
+          cy="30"
+        />
+      </svg>
+      <div class="scroll-progress-percentage">0%</div>
+    </div>
+
     <!-- Mobile menu overlay -->
     <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- Project Detail Modal -->
+    <div class="project-modal" id="project-modal">
+      <div class="modal-overlay" id="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close" aria-label="Close modal">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div class="modal-header">
+          <span class="modal-project-type" id="modal-project-type"></span>
+          <h2 class="modal-title" id="modal-title"></h2>
+        </div>
+        <div class="modal-body">
+          <div class="modal-description" id="modal-description"></div>
+
+          <div class="modal-section">
+            <h3><i class="bi bi-rocket-takeoff"></i> Key Features</h3>
+            <div class="modal-features" id="modal-features"></div>
+          </div>
+
+          <div class="modal-section">
+            <h3><i class="bi bi-stack"></i> Technologies Used</h3>
+            <div class="modal-tech-stack" id="modal-tech-stack"></div>
+          </div>
+
+          <div class="modal-section">
+            <h3><i class="bi bi-lightbulb"></i> Challenges & Solutions</h3>
+            <div class="modal-challenges" id="modal-challenges"></div>
+          </div>
+
+          <div class="modal-links" id="modal-links"></div>
+        </div>
+      </div>
+    </div>
 
     <nav>
       <a href="#home" class="logo-link">
@@ -97,18 +147,14 @@
       <div class="overlay">
         <h1 class="hero-glow">Hi, I'm Ehtesham</h1>
         <p>Frontend Developer</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/ehteshamulghani/" target="_blank"
-            >LinkedIn</a
-          >
-          <a
-            href="https://drive.google.com/file/d/1mpgUyN6cZ8I8ynLtFE7IVqhNDPv62dRP/view?usp=sharing"
-            target="_blank"
-            >Resume</a
-          >
-          <a href="https://github.com/Eghani" target="_blank">GitHub</a>
-          <a href="https://x.com/Eghani22" target="_blank">X</a>
-        </div>
+        <a
+          href="https://drive.google.com/uc?export=download&id=1mpgUyN6cZ8I8ynLtFE7IVqhNDPv62dRP"
+          class="resume-download-btn"
+          download="Ehteshamul_Ghani_Resume.pdf"
+        >
+          <i class="bi bi-download"></i>
+          Download Resume
+        </a>
       </div>
     </section>
 
@@ -385,7 +431,7 @@
     <section id="projects">
       <h2>Projects</h2>
       <div class="projects-container">
-        <div class="project-card featured">
+        <div class="project-card featured" data-project="simon-game">
           <div class="project-header">
             <span class="project-type">Featured Project</span>
           </div>
@@ -423,7 +469,7 @@
             </div>
           </div>
         </div>
-        <div class="project-card featured">
+        <div class="project-card featured" data-project="pharma-care">
           <div class="project-header">
             <span class="project-type">Featured Project</span>
           </div>
@@ -462,7 +508,7 @@
             </div>
           </div>
         </div>
-        <div class="project-card">
+        <div class="project-card" data-project="shopping-cart">
           <div class="project-content">
             <h3>Shopping Cart</h3>
             <p>
@@ -561,39 +607,143 @@
     </section>
 
     <section id="contact">
-      <h1>Contact Me</h1>
-      <div class="contact-icons">
-        <a
-          href="mailto:ghaniehteshamul@gmail.com"
-          class="contact-icon"
-          title="Email"
-        >
-          <i class="bi bi-envelope-fill"></i>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/ehteshamulghani/"
-          class="contact-icon"
-          title="LinkedIn"
-          target="_blank"
-        >
-          <i class="bi bi-linkedin"></i>
-        </a>
-        <a
-          href="https://github.com/Eghani"
-          class="contact-icon"
-          title="GitHub"
-          target="_blank"
-        >
-          <i class="bi bi-github"></i>
-        </a>
-        <a
-          href="https://x.com/Eghani22"
-          class="contact-icon"
-          title="X (Twitter)"
-          target="_blank"
-        >
-          <i class="bi bi-twitter-x"></i>
-        </a>
+      <h1>Get In Touch</h1>
+      <p class="contact-subtitle">
+        Have a project in mind or want to collaborate? I'd love to hear from
+        you!
+      </p>
+
+      <div class="contact-container">
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="name">
+                <i class="bi bi-person-fill"></i>
+                Your Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">
+                <i class="bi bi-envelope-fill"></i>
+                Your Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@example.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">
+                <i class="bi bi-chat-left-text-fill"></i>
+                Subject
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Project Collaboration"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">
+                <i class="bi bi-pencil-fill"></i>
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Tell me about your project or idea..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <i class="bi bi-send-fill"></i>
+              Send Message
+            </button>
+
+            <div id="form-status" class="form-status"></div>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <div class="contact-info-card">
+            <div class="info-icon">
+              <i class="bi bi-envelope-at-fill"></i>
+            </div>
+            <h3>Email</h3>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="info-icon">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <h3>Location</h3>
+            <p>India</p>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="info-icon">
+              <i class="bi bi-clock-fill"></i>
+            </div>
+            <h3>Response Time</h3>
+            <p>Within 24 hours</p>
+          </div>
+
+          <div class="social-connect">
+            <h3>Connect With Me</h3>
+            <div class="contact-icons">
+              <a
+                href="mailto:ghaniehteshamul@gmail.com"
+                class="contact-icon"
+                title="Email"
+              >
+                <i class="bi bi-envelope-fill"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ehteshamulghani/"
+                class="contact-icon"
+                title="LinkedIn"
+                target="_blank"
+              >
+                <i class="bi bi-linkedin"></i>
+              </a>
+              <a
+                href="https://github.com/Eghani"
+                class="contact-icon"
+                title="GitHub"
+                target="_blank"
+              >
+                <i class="bi bi-github"></i>
+              </a>
+              <a
+                href="https://x.com/Eghani22"
+                class="contact-icon"
+                title="X (Twitter)"
+                target="_blank"
+              >
+                <i class="bi bi-twitter-x"></i>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -683,5 +833,336 @@
         closeMenu();
       }
     });
+
+    // Project Modal Functionality
+    const projectModal = document.getElementById("project-modal");
+    const modalOverlay = document.getElementById("modal-overlay");
+    const modalClose = document.getElementById("modal-close");
+
+    // Project data with detailed information
+    const projectsData = {
+      "simon-game": {
+        type: "Featured Project",
+        title: "Simon Game",
+        description:
+          "A responsive web-based Simon memory game with sound, animations, and a 2x2 color grid. This interactive game challenges players to remember and repeat increasingly complex sequences, featuring progressive difficulty, high score tracking, and smooth animations for an engaging user experience.",
+        features: [
+          "🎮 Interactive color sequence gameplay with visual feedback",
+          "🎵 Synchronized sound effects for each color button",
+          "📊 Real-time score tracking and high score persistence",
+          "🎨 Smooth CSS animations and transitions",
+          "📱 Fully responsive design for all devices",
+          "⚡ Progressive difficulty with faster sequences",
+        ],
+        techStack: ["HTML5", "CSS3", "JavaScript", "jQuery", "Web Audio API"],
+        challenges: [
+          {
+            problem: "Sequence Timing",
+            solution:
+              "Implemented precise timing control using JavaScript promises and async/await to ensure smooth sequence playback and user input validation.",
+          },
+          {
+            problem: "Mobile Touch Responsiveness",
+            solution:
+              "Optimized touch event handlers with debouncing to prevent double-taps and ensure accurate color selection on mobile devices.",
+          },
+          {
+            problem: "Sound Synchronization",
+            solution:
+              "Used Web Audio API to preload sounds and synchronize audio playback with visual animations for seamless user experience.",
+          },
+        ],
+        links: [
+          {
+            text: "View Live Demo",
+            url: "https://eghani.github.io/Simon-Game/",
+            icon: "bi-box-arrow-up-right",
+          },
+          {
+            text: "Source Code",
+            url: "https://github.com/Eghani/Simon-Game",
+            icon: "bi-github",
+            secondary: true,
+          },
+        ],
+      },
+      "pharma-care": {
+        type: "Featured Project",
+        title: "Pharma Care",
+        description:
+          "PharmaCare is a modern, responsive online pharmacy web application designed to provide users with a seamless shopping experience for health products. Users can browse through various categories, search for specific medicines, and add items to their cart with an intuitive interface.",
+        features: [
+          "🛒 Complete shopping cart functionality with add/remove items",
+          "🔍 Real-time product search and filtering system",
+          "📦 Well-organized product catalog by categories",
+          "💊 Detailed product information and descriptions",
+          "📱 Fully responsive design optimized for mobile shopping",
+          "🎨 Clean, modern UI with smooth animations",
+        ],
+        techStack: ["HTML5", "CSS3", "JavaScript", "Flexbox", "Grid Layout"],
+        challenges: [
+          {
+            problem: "Product Filtering Performance",
+            solution:
+              "Implemented efficient DOM manipulation and debounced search to handle large product catalogs without performance lag.",
+          },
+          {
+            problem: "Cart State Management",
+            solution:
+              "Created a custom state management system using JavaScript objects and localStorage for persistent cart data across sessions.",
+          },
+          {
+            problem: "Mobile UX Optimization",
+            solution:
+              "Designed touch-friendly interfaces with larger tap targets and optimized layouts specifically for mobile pharmacy browsing.",
+          },
+        ],
+        links: [
+          {
+            text: "View Live Demo",
+            url: "https://eghani.github.io/Pharma-care/",
+            icon: "bi-box-arrow-up-right",
+          },
+          {
+            text: "Source Code",
+            url: "https://github.com/Eghani/Pharma-care",
+            icon: "bi-github",
+            secondary: true,
+          },
+        ],
+      },
+    };
+
+    // Open modal function
+    function openProjectModal(projectId) {
+      const project = projectsData[projectId];
+      if (!project) return;
+
+      // Populate modal content
+      document.getElementById("modal-project-type").textContent = project.type;
+      document.getElementById("modal-title").textContent = project.title;
+      document.getElementById("modal-description").textContent =
+        project.description;
+
+      // Features
+      const featuresContainer = document.getElementById("modal-features");
+      featuresContainer.innerHTML = project.features
+        .map(
+          (feature) => `
+        <div class="modal-feature-item">${feature}</div>
+      `
+        )
+        .join("");
+
+      // Tech Stack
+      const techStackContainer = document.getElementById("modal-tech-stack");
+      techStackContainer.innerHTML = project.techStack
+        .map(
+          (tech) => `
+        <span class="modal-tech-badge">${tech}</span>
+      `
+        )
+        .join("");
+
+      // Challenges
+      const challengesContainer = document.getElementById("modal-challenges");
+      challengesContainer.innerHTML = project.challenges
+        .map(
+          (challenge) => `
+        <div class="modal-challenge-item">
+          <h4>${challenge.problem}</h4>
+          <p>${challenge.solution}</p>
+        </div>
+      `
+        )
+        .join("");
+
+      // Links
+      const linksContainer = document.getElementById("modal-links");
+      linksContainer.innerHTML = project.links
+        .map(
+          (link) => `
+        <a href="${link.url}" target="_blank" class="modal-link-btn ${
+            link.secondary ? "secondary" : ""
+          }">
+          <i class="bi ${link.icon}"></i>
+          ${link.text}
+        </a>
+      `
+        )
+        .join("");
+
+      // Show modal
+      projectModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    // Close modal function
+    function closeProjectModal() {
+      projectModal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    // Event listeners for modal
+    modalClose.addEventListener("click", closeProjectModal);
+    modalOverlay.addEventListener("click", closeProjectModal);
+
+    // Close modal on escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && projectModal.classList.contains("active")) {
+        closeProjectModal();
+      }
+    });
+
+    // Add click listeners to all project cards
+    document.querySelectorAll(".project-card[data-project]").forEach((card) => {
+      card.addEventListener("click", (e) => {
+        if (e.target.tagName === "A" || e.target.closest("a")) {
+          return;
+        }
+        const projectId = card.getAttribute("data-project");
+        openProjectModal(projectId);
+      });
+    });
+
+    // Contact Form Functionality
+    const contactForm = document.getElementById("contact-form");
+    const formStatus = document.getElementById("form-status");
+
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+      };
+
+      // Show loading state
+      const submitBtn = contactForm.querySelector(".submit-btn");
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
+      submitBtn.disabled = true;
+
+      try {
+        // Using Formspree
+        const response = await fetch("https://formspree.io/f/movpapbr", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          // Success
+          formStatus.className = "form-status success";
+          formStatus.textContent =
+            "✓ Message sent successfully! I'll get back to you soon.";
+          contactForm.reset();
+
+          // Hide success message after 5 seconds
+          setTimeout(() => {
+            formStatus.style.display = "none";
+          }, 5000);
+        } else {
+          throw new Error("Failed to send message");
+        }
+      } catch (error) {
+        // Error - fallback to mailto
+        formStatus.className = "form-status error";
+        formStatus.innerHTML =
+          '✕ Unable to send via form. <a href="mailto:ghaniehteshamul@gmail.com?subject=' +
+          encodeURIComponent(formData.subject) +
+          "&body=" +
+          encodeURIComponent(formData.message) +
+          '" style="color: #58a6ff; text-decoration: underline;">Click here to email directly</a>';
+      } finally {
+        // Reset button
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+      }
+    });
+
+    // Scroll Progress Indicator Functionality
+    const scrollProgressWrapper = document.querySelector(
+      ".scroll-progress-wrapper"
+    );
+    const scrollProgressCircle = document.querySelector(
+      ".scroll-progress-ring-circle"
+    );
+    const scrollProgressPercentage = document.querySelector(
+      ".scroll-progress-percentage"
+    );
+
+    function getCircumference() {
+      const radius = parseFloat(scrollProgressCircle.getAttribute("r"));
+      return 2 * Math.PI * radius;
+    }
+
+    function updateScrollProgress() {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+
+      // Get current circumference (changes on resize)
+      const circumference = getCircumference();
+
+      // Update circle progress
+      const offset = circumference - (scrollPercent / 100) * circumference;
+      scrollProgressCircle.style.strokeDashoffset = offset;
+
+      // Update percentage text
+      scrollProgressPercentage.textContent = Math.round(scrollPercent) + "%";
+
+      // Show/hide indicator based on scroll position
+      if (scrollTop > 100) {
+        scrollProgressWrapper.style.opacity = "1";
+        scrollProgressWrapper.style.visibility = "visible";
+      } else {
+        scrollProgressWrapper.style.opacity = "0";
+        scrollProgressWrapper.style.visibility = "hidden";
+      }
+    }
+
+    // Update circumference on window resize for mobile/desktop switch
+    function updateCircleSize() {
+      const isMobile = window.innerWidth <= 480;
+      const radius = isMobile ? 22 : 27;
+      const cx = isMobile ? 25 : 30;
+      const cy = isMobile ? 25 : 30;
+      const circumference = 2 * Math.PI * radius;
+
+      scrollProgressCircle.setAttribute("r", radius);
+      scrollProgressCircle.setAttribute("cx", cx);
+      scrollProgressCircle.setAttribute("cy", cy);
+      scrollProgressCircle.style.strokeDasharray = circumference;
+      scrollProgressCircle.style.strokeDashoffset = circumference;
+
+      // Update progress after resize
+      updateScrollProgress();
+    }
+
+    // Scroll to top on click
+    scrollProgressWrapper.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+
+    // Update on scroll
+    window.addEventListener("scroll", updateScrollProgress);
+
+    // Update on resize
+    window.addEventListener("resize", updateCircleSize);
+
+    // Initial setup
+    updateCircleSize();
+    updateScrollProgress();
   </script>
 </html>
