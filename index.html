@@ -642,6 +642,88 @@
       </div>
     </section>
 
+    <section id="blog">
+      <h2>Latest Blogs</h2>
+
+      <div class="blog-container">
+        <article class="blog-card" data-index="1">
+          <div class="blog-card-header">
+            <span class="blog-date">
+              <i class="bi bi-calendar-event"></i>
+              Jan 7, 2026
+            </span>
+            <span class="blog-read-time">
+              <i class="bi bi-clock"></i>
+              5 min read
+            </span>
+          </div>
+          <div class="blog-card-body">
+            <h3>What I Learned After Starting My Coding Journey in College</h3>
+            <p>
+              I didn’t start coding because I was a “tech genius.” I started
+              because I was confused.
+            </p>
+            <div class="blog-tags">
+              <span class="blog-tag">Student Life</span>
+              <span class="blog-tag">Programming Dev</span>
+              <span class="blog-tag">Personal Growth</span>
+            </div>
+          </div>
+          <div class="blog-card-footer">
+            <a
+              href="https://medium.com/@ghaniehteshamul"
+              class="blog-read-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read Blog
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="blog-card" data-index="2">
+          <div class="blog-card-header">
+            <span class="blog-date">
+              <i class="bi bi-calendar-event"></i>
+              Coming Soon
+            </span>
+            <span class="blog-read-time">
+              <i class="bi bi-clock"></i>
+              -- min read
+            </span>
+          </div>
+          <div class="blog-card-body">
+            <h3>More Articles Coming Soon!</h3>
+            <p>
+              I'm currently working on new content covering web development, coding tips, and my learning journey. Stay tuned for upcoming articles!
+            </p>
+            <div class="blog-tags">
+              <span class="blog-tag">Coming Soon</span>
+            </div>
+          </div>
+          <div class="blog-card-footer">
+            <a
+              href="https://medium.com/@ghaniehteshamul"
+              class="blog-read-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Follow on Medium
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="blog-load-more-container" style="display: none">
+        <button id="loadMoreBtn" class="blog-load-more-btn">
+          <span>Load More Articles</span>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+      </div>
+    </section>
+
     <section id="cta" class="cta-section">
       <div class="cta-content">
         <h2>Let's Build Something Amazing Together!</h2>
@@ -1220,5 +1302,39 @@
     // Initial setup
     updateCircleSize();
     updateScrollProgress();
+
+    // Blog Load More Functionality
+    const blogCards = document.querySelectorAll(".blog-card");
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+    let visibleCount = 2;
+
+    function updateBlogVisibility() {
+      blogCards.forEach((card, index) => {
+        if (index < visibleCount) {
+          card.style.display = "flex";
+          setTimeout(() => {
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, (index - Math.max(0, visibleCount - 2)) * 100);
+        }
+      });
+
+      if (visibleCount >= blogCards.length) {
+        loadMoreBtn.classList.add("hidden");
+      }
+    }
+
+    loadMoreBtn.addEventListener("click", () => {
+      visibleCount = Math.min(visibleCount + 2, blogCards.length);
+      updateBlogVisibility();
+    });
+
+    blogCards.forEach((card) => {
+      card.style.opacity = "0";
+      card.style.transform = "translateY(20px)";
+      card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+    });
+
+    updateBlogVisibility();
   </script>
 </html>
