@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -38,7 +38,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -113,37 +113,72 @@
       </button>
       <ul class="nav-links" id="nav-links">
         <li>
-          <a href="#home" class="nav-icon" data-tooltip="Home">
+          <a
+            href="#home"
+            class="nav-icon"
+            data-tooltip="Home"
+            aria-label="Home"
+          >
             <i class="bi bi-house-fill"></i>
           </a>
         </li>
         <li>
-          <a href="#about" class="nav-icon" data-tooltip="About">
+          <a
+            href="#about"
+            class="nav-icon"
+            data-tooltip="About"
+            aria-label="About"
+          >
             <i class="bi bi-person-fill"></i>
           </a>
         </li>
         <li>
-          <a href="#journey" class="nav-icon" data-tooltip="Journey">
+          <a
+            href="#journey"
+            class="nav-icon"
+            data-tooltip="Journey"
+            aria-label="Journey"
+          >
             <i class="bi bi-map-fill"></i>
           </a>
         </li>
         <li>
-          <a href="#education" class="nav-icon" data-tooltip="Education">
+          <a
+            href="#education"
+            class="nav-icon"
+            data-tooltip="Education"
+            aria-label="Education"
+          >
             <i class="bi bi-mortarboard-fill"></i>
           </a>
         </li>
         <li>
-          <a href="#skills" class="nav-icon" data-tooltip="Skills">
+          <a
+            href="#skills"
+            class="nav-icon"
+            data-tooltip="Skills"
+            aria-label="Skills"
+          >
             <i class="bi bi-gear-fill"></i>
           </a>
         </li>
         <li>
-          <a href="#projects" class="nav-icon" data-tooltip="Projects">
+          <a
+            href="#projects"
+            class="nav-icon"
+            data-tooltip="Projects"
+            aria-label="Projects"
+          >
             <i class="bi bi-folder-fill"></i>
           </a>
         </li>
         <li>
-          <a href="#contact" class="nav-icon" data-tooltip="Contact">
+          <a
+            href="#contact"
+            class="nav-icon"
+            data-tooltip="Contact"
+            aria-label="Contact"
+          >
             <i class="bi bi-envelope-fill"></i>
           </a>
         </li>
@@ -154,6 +189,7 @@
             data-tooltip="Blog"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Blog on Medium"
           >
             <i class="bi bi-medium"></i>
           </a>
@@ -317,17 +353,11 @@
                 <i class="bi bi-filetype-html"></i>
                 <span>HTML5</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
-              </div>
             </div>
             <div class="skill-item">
               <div class="skill-info">
                 <i class="bi bi-filetype-css"></i>
                 <span>CSS3</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 85%"></div>
               </div>
             </div>
             <div class="skill-item">
@@ -335,26 +365,17 @@
                 <i class="bi bi-filetype-js"></i>
                 <span>JavaScript</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 75%"></div>
-              </div>
             </div>
             <div class="skill-item">
               <div class="skill-info">
                 <i class="bi bi-react"></i>
                 <span>React</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 70%"></div>
-              </div>
             </div>
             <div class="skill-item">
               <div class="skill-info">
                 <i class="bi bi-bootstrap"></i>
                 <span>Bootstrap</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
               </div>
             </div>
           </div>
@@ -368,17 +389,11 @@
                 <i class="bi bi-filetype-py"></i>
                 <span>Python</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 80%"></div>
-              </div>
             </div>
             <div class="skill-item">
               <div class="skill-info">
                 <i class="bi bi-filetype-cpp"></i>
                 <span>C++</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 95%"></div>
               </div>
             </div>
           </div>
@@ -392,17 +407,11 @@
                 <i class="bi bi-git"></i>
                 <span>Git</span>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 95%"></div>
-              </div>
             </div>
             <div class="skill-item">
               <div class="skill-info">
                 <i class="bi bi-github"></i>
                 <span>GitHub</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
               </div>
             </div>
           </div>
@@ -456,7 +465,8 @@
                 href="https://eghani.github.io/Simon-Game/"
                 class="featured-btn primary"
                 target="_blank"
-                onclick="event.stopPropagation();"
+                rel="noopener noreferrer"
+                onclick="event.stopPropagation()"
               >
                 <i class="bi bi-box-arrow-up-right"></i>
                 Live Demo
@@ -465,7 +475,8 @@
                 href="https://github.com/Eghani/Simon-Game"
                 class="featured-btn secondary"
                 target="_blank"
-                onclick="event.stopPropagation();"
+                rel="noopener noreferrer"
+                onclick="event.stopPropagation()"
               >
                 <i class="bi bi-github"></i>
                 Source
@@ -515,7 +526,8 @@
                 href="https://eghani.github.io/Pharma-care/"
                 class="featured-btn primary"
                 target="_blank"
-                onclick="event.stopPropagation();"
+                rel="noopener noreferrer"
+                onclick="event.stopPropagation()"
               >
                 <i class="bi bi-box-arrow-up-right"></i>
                 Live Demo
@@ -524,7 +536,8 @@
                 href="https://github.com/Eghani/Pharma-care"
                 class="featured-btn secondary"
                 target="_blank"
-                onclick="event.stopPropagation();"
+                rel="noopener noreferrer"
+                onclick="event.stopPropagation()"
               >
                 <i class="bi bi-github"></i>
                 Source
@@ -562,6 +575,7 @@
               href="https://github.com/Eghani/Web-dev-projects/tree/main/shopping_cart"
               class="standard-link"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <i class="bi bi-github"></i>
               View Code
@@ -587,6 +601,7 @@
               href="https://github.com/Eghani/Cpp-Projects/blob/main/shopping%20cart/shopping_cart.cpp"
               class="standard-link"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <i class="bi bi-github"></i>
               View Code
@@ -610,6 +625,7 @@
               href="https://github.com/Eghani/Python-projects/blob/main/stone_paper_scissor/stone_paper_scissor.py"
               class="standard-link"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <i class="bi bi-github"></i>
               View Code
@@ -633,6 +649,7 @@
               href="https://github.com/Eghani/Python-projects/blob/main/To_Do_list/to_do_list.py"
               class="standard-link"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <i class="bi bi-github"></i>
               View Code
@@ -660,7 +677,7 @@
           <div class="blog-card-body">
             <h3>What I Learned After Starting My Coding Journey in College</h3>
             <p>
-              I didn’t start coding because I was a “tech genius.” I started
+              I didn't start coding because I was a "tech genius." I started
               because I was confused.
             </p>
             <div class="blog-tags">
@@ -686,7 +703,7 @@
           <div class="blog-card-header">
             <span class="blog-date">
               <i class="bi bi-calendar-event"></i>
-              Jan 11 , 2026
+              Jan 11, 2026
             </span>
             <span class="blog-read-time">
               <i class="bi bi-clock"></i>
@@ -694,10 +711,10 @@
             </span>
           </div>
           <div class="blog-card-body">
-            <h3>What My First Year of B.Tech Actually Taught Me</h3>
+            <h3>What My First Year of B.Tech Actually Taught Me</h3>
             <p>
               I thought my first year of B.Tech would prepare me for the future.
-               It didn't.  It only showed me how unprepared I actually was.
+              It didn't. It only showed me how unprepared I actually was.
             </p>
             <div class="blog-tags">
               <span class="blog-tag">Reality Check</span>
@@ -739,6 +756,7 @@
           <a
             href="https://drive.google.com/file/d/1mpgUyN6cZ8I8ynLtFE7IVqhNDPv62dRP/view?usp=sharing"
             target="_blank"
+            rel="noopener noreferrer"
             class="cta-btn secondary"
             >View Resume</a
           >
@@ -829,6 +847,11 @@
               <i class="bi bi-envelope-at-fill"></i>
             </div>
             <h3>Email</h3>
+            <p>
+              <a href="mailto:ghaniehteshamul@gmail.com"
+                >ghaniehteshamul@gmail.com</a
+              >
+            </p>
           </div>
 
           <div class="contact-info-card">
@@ -854,6 +877,7 @@
                 href="mailto:ghaniehteshamul@gmail.com"
                 class="contact-icon"
                 title="Email"
+                aria-label="Email Ehteshamul Ghani"
               >
                 <i class="bi bi-envelope-fill"></i>
               </a>
@@ -862,6 +886,8 @@
                 class="contact-icon"
                 title="LinkedIn"
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Ehteshamul Ghani on LinkedIn"
               >
                 <i class="bi bi-linkedin"></i>
               </a>
@@ -870,6 +896,8 @@
                 class="contact-icon"
                 title="GitHub"
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Ehteshamul Ghani on GitHub"
               >
                 <i class="bi bi-github"></i>
               </a>
@@ -878,6 +906,8 @@
                 class="contact-icon"
                 title="X (Twitter)"
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Ehteshamul Ghani on X"
               >
                 <i class="bi bi-twitter-x"></i>
               </a>
@@ -905,20 +935,30 @@
         <div class="footer-section">
           <h4>Connect</h4>
           <div class="footer-social">
-            <a href="https://github.com/Eghani" target="_blank" title="GitHub">
+            <a
+              href="https://github.com/Eghani"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="GitHub"
+              aria-label="Visit Ehteshamul Ghani on GitHub"
+            >
               <i class="bi bi-github"></i>
             </a>
             <a
               href="https://www.linkedin.com/in/ehteshamulghani/"
               target="_blank"
+              rel="noopener noreferrer"
               title="LinkedIn"
+              aria-label="Visit Ehteshamul Ghani on LinkedIn"
             >
               <i class="bi bi-linkedin"></i>
             </a>
             <a
               href="https://x.com/Eghani22"
               target="_blank"
+              rel="noopener noreferrer"
               title="X (Twitter)"
+              aria-label="Visit Ehteshamul Ghani on X"
             >
               <i class="bi bi-twitter-x"></i>
             </a>
@@ -926,7 +966,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 Ehteshamul Ghani</p>
+        <p>&copy; 2026 Ehteshamul Ghani</p>
       </div>
     </footer>
   </body>
@@ -987,12 +1027,12 @@
         description:
           "A responsive web-based Simon memory game with sound, animations, and a 2x2 color grid. This interactive game challenges players to remember and repeat increasingly complex sequences, featuring progressive difficulty, high score tracking, and smooth animations for an engaging user experience.",
         features: [
-          "🎮 Interactive color sequence gameplay with visual feedback",
-          "🎵 Synchronized sound effects for each color button",
-          "📊 Real-time score tracking and high score persistence",
-          "🎨 Smooth CSS animations and transitions",
-          "📱 Fully responsive design for all devices",
-          "⚡ Progressive difficulty with faster sequences",
+          "Interactive color sequence gameplay with visual feedback",
+          "Synchronized sound effects for each color button",
+          "Real-time score tracking and high score persistence",
+          "Smooth CSS animations and transitions",
+          "Fully responsive design for all devices",
+          "Progressive difficulty with faster sequences",
         ],
         techStack: ["HTML5", "CSS3", "JavaScript", "jQuery", "Web Audio API"],
         challenges: [
@@ -1032,12 +1072,12 @@
         description:
           "PharmaCare is a modern, responsive online pharmacy web application designed to provide users with a seamless shopping experience for health products. Users can browse through various categories, search for specific medicines, and add items to their cart with an intuitive interface.",
         features: [
-          "🛒 Complete shopping cart functionality with add/remove items",
-          "🔍 Real-time product search and filtering system",
-          "📦 Well-organized product catalog by categories",
-          "💊 Detailed product information and descriptions",
-          "📱 Fully responsive design optimized for mobile shopping",
-          "🎨 Clean, modern UI with smooth animations",
+          "Complete shopping cart functionality with add/remove items",
+          "Real-time product search and filtering system",
+          "Well-organized product catalog by categories",
+          "Detailed product information and descriptions",
+          "Fully responsive design optimized for mobile shopping",
+          "Clean, modern UI with smooth animations",
         ],
         techStack: ["HTML5", "CSS3", "JavaScript", "Flexbox", "Grid Layout"],
         challenges: [
@@ -1090,7 +1130,7 @@
         .map(
           (feature) => `
         <div class="modal-feature-item">${feature}</div>
-      `
+      `,
         )
         .join("");
 
@@ -1100,7 +1140,7 @@
         .map(
           (tech) => `
         <span class="modal-tech-badge">${tech}</span>
-      `
+      `,
         )
         .join("");
 
@@ -1113,7 +1153,7 @@
           <h4>${challenge.problem}</h4>
           <p>${challenge.solution}</p>
         </div>
-      `
+      `,
         )
         .join("");
 
@@ -1122,13 +1162,13 @@
       linksContainer.innerHTML = project.links
         .map(
           (link) => `
-        <a href="${link.url}" target="_blank" class="modal-link-btn ${
-            link.secondary ? "secondary" : ""
-          }">
+        <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="modal-link-btn ${
+          link.secondary ? "secondary" : ""
+        }">
           <i class="bi ${link.icon}"></i>
           ${link.text}
         </a>
-      `
+      `,
         )
         .join("");
 
@@ -1152,17 +1192,6 @@
       if (e.key === "Escape" && projectModal.classList.contains("active")) {
         closeProjectModal();
       }
-    });
-
-    // Add click listeners to all project cards
-    document.querySelectorAll(".project-card[data-project]").forEach((card) => {
-      card.addEventListener("click", (e) => {
-        if (e.target.tagName === "A" || e.target.closest("a")) {
-          return;
-        }
-        const projectId = card.getAttribute("data-project");
-        openProjectModal(projectId);
-      });
     });
 
     // Contact Form Functionality
@@ -1227,13 +1256,13 @@
 
     // Scroll Progress Indicator Functionality
     const scrollProgressWrapper = document.querySelector(
-      ".scroll-progress-wrapper"
+      ".scroll-progress-wrapper",
     );
     const scrollProgressCircle = document.querySelector(
-      ".scroll-progress-ring-circle"
+      ".scroll-progress-ring-circle",
     );
     const scrollProgressPercentage = document.querySelector(
-      ".scroll-progress-percentage"
+      ".scroll-progress-percentage",
     );
 
     function getCircumference() {
@@ -1314,10 +1343,13 @@
       blogCards.forEach((card, index) => {
         if (index < visibleCount) {
           card.style.display = "flex";
-          setTimeout(() => {
-            card.style.opacity = "1";
-            card.style.transform = "translateY(0)";
-          }, (index - Math.max(0, visibleCount - 2)) * 100);
+          setTimeout(
+            () => {
+              card.style.opacity = "1";
+              card.style.transform = "translateY(0)";
+            },
+            (index - Math.max(0, visibleCount - 2)) * 100,
+          );
         }
       });
 
