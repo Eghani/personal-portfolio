@@ -1787,7 +1787,7 @@ footer {
   color: #e6edf3;
   padding: 3rem 1rem 1.5rem;
   margin-top: 2rem;
-  border-top: 1px solid rgba(48, 54, 61, 0.85);
+  /* border-top: 1px solid rgba(48, 54, 61, 0.85); */
 }
 
 .footer-content {
@@ -1870,7 +1870,7 @@ footer {
   max-width: 1120px;
   margin: 0 auto;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(48, 54, 61, 0.85);
+  /* border-top: 1px solid rgba(48, 54, 61, 0.85); */
 }
 
 .footer-bottom p {
