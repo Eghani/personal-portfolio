@@ -466,6 +466,76 @@
       <div class="featured-projects-section">
         <h3 class="section-subtitle">Recent Work</h3>
         <div class="featured-projects-grid">
+          <div class="featured-project-card" data-project="NoteFloat">
+            <div class="featured-card-header">
+              <span class="featured-badge">Featured</span>
+              <div class="featured-icon">
+                <i class="bi bi-star-fill"></i>
+              </div>
+            </div>
+            <div class="featured-card-body">
+              <h3>Note Float</h3>
+              <p class="featured-description">
+                A lightweight Chrome Extension built to reduce friction during
+                browsing by providing a temporary floating scratchpad directly
+                inside the browser. Users can quickly create, edit, complete,
+                and manage short-lived tasks without opening separate apps or
+                tabs. Designed around a minimal runtime-only workflow with
+                draggable UI interactions and zero persistent storage.
+              </p>
+              <div class="featured-highlights">
+                <span
+                  ><i class="bi bi-check-circle-fill"></i> Floating Draggable
+                  Overlay</span
+                >
+                <span
+                  ><i class="bi bi-check-circle-fill"></i> Runtime-Only Task
+                  Workflow</span
+                >
+                <span
+                  ><i class="bi bi-check-circle-fill"></i> Chrome Extension
+                  Architecture</span
+                >
+              </div>
+              <div class="featured-tech-stack">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Chrome API</span>
+                <span class="tech-tag">Manifest V3</span>
+                <span class="tech-tag">DOM</span>
+              </div>
+            </div>
+            <div class="featured-card-footer">
+              <!-- <a
+                href="https://drive.google.com/file/d/1b9eicVIKeFOAuSxVQK3dW-SoMN_1Rddc/view?usp=sharing"
+                class="featured-btn primary"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="event.stopPropagation()"
+              >
+                <i class="bi bi-box-arrow-up-right"></i>
+                Live Demo
+              </a> -->
+              <a
+                href="https://github.com/Eghani/notefloat.git"
+                class="featured-btn secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="event.stopPropagation()"
+              >
+                <i class="bi bi-github"></i>
+                Source Code
+              </a>
+              <button
+                class="featured-btn info"
+                onclick="openProjectModal('NoteFloat')"
+              >
+                <i class="bi bi-info-circle"></i>
+                More Info
+              </button>
+            </div>
+          </div>
           <div class="featured-project-card" data-project="IPL AI Guesser">
             <div class="featured-card-header">
               <span class="featured-badge">Featured</span>
@@ -1003,15 +1073,84 @@
           },
         ],
         links: [
-          // {
-          //   text: "View Live Demo",
-          //   url: "https://eghani.github.io/Simon-Game/",
-          //   icon: "bi-box-arrow-up-right",
-          // },
+          {
+            text: "View Live Demo",
+            url: "https://eghani.github.io/Simon-Game/",
+            icon: "bi-box-arrow-up-right",
+          },
           {
             text: "Source Code",
             url: "https://github.com/Eghani/ipl-player-guesser.git",
             icon: "bi-github",
+            secondary: true,
+          },
+        ],
+      },
+      NoteFloat: {
+        type: "Featured Project",
+
+        title: "NoteFloat",
+
+        description:
+          "A lightweight Chrome Extension designed to provide a temporary floating scratchpad directly inside the browser for focused browsing workflows. Users can quickly create, edit, complete, and manage short-lived tasks without switching tabs or opening external productivity apps. Built around a minimal runtime-only workflow with draggable UI interactions, viewport-aware positioning, and zero persistent storage to maintain a fast and distraction-free experience.",
+
+        features: [
+          "Floating draggable task overlay system",
+          "Runtime-only temporary task workflow",
+          "Inline task editing and management",
+          "Viewport-constrained drag interaction",
+          "Minimize and restore workflow system",
+          "Per-tab isolated scratchpad sessions",
+        ],
+
+        techStack: [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Chrome Extension API",
+          "Manifest V3",
+          "DOM Manipulation",
+        ],
+
+        challenges: [
+          {
+            problem: "Building a Stable Draggable Overlay System",
+
+            solution:
+              "One of the biggest challenges was implementing a smooth draggable overlay that worked consistently across different websites without resizing or breaking the layout. I solved this by redesigning the drag lifecycle, locking panel dimensions during movement, and applying viewport-aware drag constraints.",
+          },
+
+          {
+            problem: "Handling CSS Conflicts with Host Websites",
+
+            solution:
+              "Since the extension UI is injected directly into arbitrary websites, host page CSS often interfered with the panel styling. I reduced these conflicts using scoped selectors, isolated naming conventions, explicit sizing, high z-index layering, and carefully controlled overlay styling.",
+          },
+
+          {
+            problem: "Designing a Lightweight Productivity Workflow",
+
+            solution:
+              "A major product challenge was preventing the extension from becoming another bloated productivity tool. I intentionally avoided storage systems, dashboards, and complex state management to keep the workflow temporary, fast, and distraction-free.",
+          },
+        ],
+
+        links: [
+          // {
+          //   // text: "View Live Demo",
+
+          //   url: "YOUR_LIVE_DEMO_LINK",
+
+          //   icon: "bi-box-arrow-up-right",
+          // },
+
+          {
+            text: "Source Code",
+
+            url: "https://github.com/Eghani/notefloat.git",
+
+            icon: "bi-github",
+
             secondary: true,
           },
         ],
