@@ -20,7 +20,13 @@ const themes = {
 };
 
 function getPreferredTheme() {
-  const savedTheme = localStorage.getItem(storageKey);
+  let savedTheme = null;
+
+  try {
+    savedTheme = localStorage.getItem(storageKey);
+  } catch {
+    savedTheme = null;
+  }
 
   if (savedTheme === "dark" || savedTheme === "light") {
     return savedTheme;
@@ -33,18 +39,30 @@ function getPreferredTheme() {
 
 function setTheme(theme) {
   root.dataset.theme = theme;
-  toggle.setAttribute("aria-label", themes[theme].label);
-  toggle.setAttribute("aria-pressed", theme === "light");
-  themeMeta.setAttribute("content", themes[theme].color);
-  localStorage.setItem(storageKey, theme);
+
+  if (toggle) {
+    toggle.setAttribute("aria-label", themes[theme].label);
+    toggle.setAttribute("aria-pressed", theme === "light");
+  }
+
+  if (themeMeta) {
+    themeMeta.setAttribute("content", themes[theme].color);
+  }
+
+  try {
+    localStorage.setItem(storageKey, theme);
+  } catch {
+  }
 }
 
 setTheme(getPreferredTheme());
 
-toggle.addEventListener("click", () => {
-  const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
-  setTheme(nextTheme);
-});
+if (toggle) {
+  toggle.addEventListener("click", () => {
+    const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+  });
+}
 
 function setProjectsModalState(isOpen) {
   if (!projectsModal) {
@@ -69,7 +87,7 @@ function setProjectsModalState(isOpen) {
 
   if (isOpen) {
     modalPanel.focus();
-  } else {
+  } else if (workLink) {
     workLink.focus();
   }
 }
