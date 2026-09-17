@@ -130,9 +130,99 @@
               </li>
             </ul>
           </nav>
+
+          <button class="work-link" type="button" aria-haspopup="dialog">
+            Want to see my work?
+          </button>
         </div>
       </section>
     </main>
+
+    <div
+      class="projects-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="projects-title"
+      aria-hidden="true"
+    >
+      <div class="projects-modal__backdrop" data-modal-close></div>
+      <section class="projects-modal__panel" tabindex="-1">
+        <div class="projects-modal__header">
+          <div>
+            <h2 id="projects-title">The last three works I've done.</h2>
+          </div>
+          <button class="projects-modal__close" type="button" data-modal-close>
+            Close
+          </button>
+        </div>
+
+        <div class="projects-list">
+          <article class="project-item">
+            <div>
+              <h3>Sehat</h3>
+              <p>
+                A minimalist health calculator for BMI, body fat, ideal weight,
+                and daily calorie needs.
+              </p>
+            </div>
+            <div class="project-item__links">
+              <a
+                href="https://eghani.github.io/sehat/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Live preview
+              </a>
+              <a
+                href="https://github.com/Eghani/sehat"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Source code
+              </a>
+            </div>
+          </article>
+
+          <article class="project-item">
+            <div>
+              <h3>Note Float</h3>
+              <p>
+                A lightweight browser scratchpad for capturing and managing
+                quick tasks without leaving the current tab.
+              </p>
+            </div>
+            <div class="project-item__links">
+              <a
+                href="https://github.com/Eghani/notefloat"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Source code
+              </a>
+            </div>
+          </article>
+
+          <article class="project-item">
+            <div>
+              <h3>IPL AI Guesser</h3>
+              <p>
+                An AI-powered guessing game that combines adaptive questions
+                with backend filtering to identify an IPL player.
+              </p>
+            </div>
+            <div class="project-item__links">
+              <a
+                href="https://github.com/Eghani/ipl-player-guesser"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Source code
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="main.js"></script>

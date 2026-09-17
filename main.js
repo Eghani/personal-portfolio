@@ -2,6 +2,10 @@ const root = document.documentElement;
 const toggle = document.querySelector(".theme-toggle");
 const themeMeta = document.querySelector('meta[name="theme-color"]');
 const heroTitle = document.querySelector(".hero__title");
+const workLink = document.querySelector(".work-link");
+const projectsModal = document.querySelector(".projects-modal");
+const modalPanel = document.querySelector(".projects-modal__panel");
+const modalCloseTargets = document.querySelectorAll("[data-modal-close]");
 const storageKey = "portfolio-theme";
 
 const themes = {
@@ -41,6 +45,48 @@ toggle.addEventListener("click", () => {
   const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
   setTheme(nextTheme);
 });
+
+function setProjectsModalState(isOpen) {
+  if (!projectsModal) {
+    return;
+  }
+
+  if (isOpen && workLink) {
+    const triggerRect = workLink.getBoundingClientRect();
+    projectsModal.style.setProperty(
+      "--modal-origin-x",
+      `${triggerRect.left + triggerRect.width / 2}px`,
+    );
+    projectsModal.style.setProperty(
+      "--modal-origin-y",
+      `${triggerRect.top + triggerRect.height / 2}px`,
+    );
+  }
+
+  projectsModal.classList.toggle("is-open", isOpen);
+  projectsModal.setAttribute("aria-hidden", String(!isOpen));
+  document.body.classList.toggle("modal-open", isOpen);
+
+  if (isOpen) {
+    modalPanel.focus();
+  } else {
+    workLink.focus();
+  }
+}
+
+if (workLink && projectsModal && modalPanel) {
+  workLink.addEventListener("click", () => setProjectsModalState(true));
+
+  modalCloseTargets.forEach((target) => {
+    target.addEventListener("click", () => setProjectsModalState(false));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && projectsModal.classList.contains("is-open")) {
+      setProjectsModalState(false);
+    }
+  });
+}
 
 function initMagneticTitle() {
   if (!heroTitle) {
