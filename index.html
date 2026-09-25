@@ -20,6 +20,10 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -50,6 +54,35 @@
         </span>
       </span>
     </button>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a
+        class="site-nav__link is-active"
+        href="#main"
+        aria-label="Home"
+        aria-current="page"
+      >
+        <i class="bi bi-house site-nav__icon" aria-hidden="true"></i>
+        <span class="site-nav__label">Home</span>
+      </a>
+      <button
+        class="site-nav__link"
+        type="button"
+        aria-label="Projects"
+        aria-haspopup="dialog"
+      >
+        <i class="bi bi-grid site-nav__icon" aria-hidden="true"></i>
+        <span class="site-nav__label">Projects</span>
+      </button>
+      <a class="site-nav__link" href="#about" aria-label="About">
+        <i class="bi bi-person site-nav__icon" aria-hidden="true"></i>
+        <span class="site-nav__label">About</span>
+      </a>
+      <a class="site-nav__link" href="#contact" aria-label="Contact">
+        <i class="bi bi-envelope site-nav__icon" aria-hidden="true"></i>
+        <span class="site-nav__label">Contact</span>
+      </a>
+    </nav>
 
     <main
       id="main"
@@ -137,6 +170,51 @@
         </div>
       </section>
     </main>
+
+    <section
+      id="about"
+      class="about-section d-flex align-items-center justify-content-center"
+      aria-labelledby="about-title"
+    >
+      <div class="about-section__inner container px-4">
+        <h2 id="about-title" class="about-section__title">
+          Hi I am Ehteshamul Ghani
+        </h2>
+        <div class="about-section__copy">
+          <p>
+            I'm a frontend developer. I make websites and designs which I like,
+            and I let the AI do my job because I know how to instruct it.
+          </p>
+          <p>
+            I believe that if you know how to control things, you can make a lot
+            of things out of it. Having an interest in web development, problem
+            solving, as well as Web3 and blockchain, I'm moving one step at a
+            time towards something better.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contact"
+      class="contact-section d-flex align-items-center justify-content-center"
+      aria-labelledby="contact-title"
+    >
+      <div class="contact-section__inner container px-4">
+        <h2 id="contact-title" class="contact-section__title">
+          Want to contact me?
+        </h2>
+        <p class="contact-section__copy">
+          Have an idea, a question, or just want to say hello?
+        </p>
+        <a
+          class="contact-section__email"
+          href="mailto:ghaniehteshamul@gmail.com"
+        >
+          ghaniehteshamul@gmail.com
+        </a>
+      </div>
+    </section>
 
     <div
       class="projects-modal"

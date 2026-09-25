@@ -2,7 +2,10 @@ const root = document.documentElement;
 const toggle = document.querySelector(".theme-toggle");
 const themeMeta = document.querySelector('meta[name="theme-color"]');
 const heroTitle = document.querySelector(".hero__title");
+const sections = document.querySelectorAll("main[id], section[id]");
+const navLinks = document.querySelectorAll(".site-nav__link");
 const workLink = document.querySelector(".work-link");
+const projectNavLink = document.querySelector(".site-nav__link[aria-label='Projects']");
 const projectsModal = document.querySelector(".projects-modal");
 const modalPanel = document.querySelector(".projects-modal__panel");
 const modalCloseTargets = document.querySelectorAll("[data-modal-close]");
@@ -64,13 +67,39 @@ if (toggle) {
   });
 }
 
+if (sections.length && navLinks.length) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.55) {
+          return;
+        }
+
+        navLinks.forEach((link) => {
+          const isCurrent = link.getAttribute("href") === `#${entry.target.id}`;
+          link.classList.toggle("is-active", isCurrent);
+
+          if (isCurrent) {
+            link.setAttribute("aria-current", "page");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      });
+    },
+    { threshold: [0.55] },
+  );
+
+  sections.forEach((section) => sectionObserver.observe(section));
+}
+
 function setProjectsModalState(isOpen) {
   if (!projectsModal) {
     return;
   }
 
-  if (isOpen && workLink) {
-    const triggerRect = workLink.getBoundingClientRect();
+  if (isOpen && activeModalTrigger) {
+    const triggerRect = activeModalTrigger.getBoundingClientRect();
     projectsModal.style.setProperty(
       "--modal-origin-x",
       `${triggerRect.left + triggerRect.width / 2}px`,
@@ -87,13 +116,21 @@ function setProjectsModalState(isOpen) {
 
   if (isOpen) {
     modalPanel.focus();
-  } else if (workLink) {
-    workLink.focus();
+  } else if (activeModalTrigger) {
+    activeModalTrigger.focus();
   }
 }
 
-if (workLink && projectsModal && modalPanel) {
-  workLink.addEventListener("click", () => setProjectsModalState(true));
+let activeModalTrigger = workLink;
+const modalTriggers = [workLink, projectNavLink].filter(Boolean);
+
+if (modalTriggers.length && projectsModal && modalPanel) {
+  modalTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      activeModalTrigger = trigger;
+      setProjectsModalState(true);
+    });
+  });
 
   modalCloseTargets.forEach((target) => {
     target.addEventListener("click", () => setProjectsModalState(false));
