@@ -152,7 +152,7 @@ a {
   text-transform: uppercase;
 }
 
-.about-section__title {
+/* .about-section__title {
   margin: 0 auto 1.75rem;
   color: var(--text);
   font-family: var(--font-heading);
@@ -160,7 +160,7 @@ a {
   font-weight: 500;
   line-height: 1;
   text-wrap: balance;
-}
+} */
 
 .about-section__copy {
   max-width: 34rem;
